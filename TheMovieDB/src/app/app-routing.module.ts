@@ -17,7 +17,6 @@ import { RegisterComponent } from "./views/auth/register/register.component";
 
 // no layouts views
 import { IndexComponent } from "./views/index/index.component";
-import { LandingComponent } from "./views/landing/landing.component";
 import { ProfileComponent } from "./views/profile/profile.component";
 
 const routes: Routes = [
@@ -27,9 +26,6 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       { path: "dashboard", component: DashboardComponent },
-      { path: "settings", component: SettingsComponent },
-      { path: "tables", component: TablesComponent },
-      { path: "maps", component: MapsComponent },
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
     ],
   },
@@ -45,7 +41,6 @@ const routes: Routes = [
   },
   // no layout views
   { path: "profile", component: ProfileComponent },
-  { path: "landing", component: LandingComponent },
   { path: "", component: IndexComponent },
   { path: "**", redirectTo: "", pathMatch: "full" },
 ];
