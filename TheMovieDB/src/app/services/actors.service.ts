@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
-import { PeopleRespon } from "../interfaces/actors-interface";
+import { ActorRespon } from "../interfaces/actors-interface";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { ActorResponse } from "../interfaces/actorDetails-interface";
@@ -15,8 +15,8 @@ export class ActorsService {
    * Get the list of people in tv
    * @returns the list of people on the movie
    */
-  getListPeople(page: number): Observable<PeopleRespon> {
-    return this.http.get<PeopleRespon>(
+  getListPeople(page: number): Observable<ActorRespon> {
+    return this.http.get<ActorRespon>(
       `${environment.API_BASE_URL}/person/popular?api_key=${environment.api_key}&language=es-ES&page=${page}`
     );
   }
@@ -26,4 +26,9 @@ export class ActorsService {
       `${environment.API_BASE_URL}/person/${id}?api_key=${environment.api_key}&language=en-US`
     );
   }
+
+  showFilmsImg(posterFilm: string) {
+    return `${environment.api_base_img}${posterFilm}`;
+  }
+
 }

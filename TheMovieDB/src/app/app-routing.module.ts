@@ -26,10 +26,6 @@ const routes: Routes = [
     path: "admin",
     component: AdminComponent,
     children: [
-<<<<<<< HEAD
-      { path: "dashboard", component: DashboardComponent },
-      { path: "", redirectTo: "dashboard", pathMatch: "full" },
-=======
       { path: "actors", component: DashboardComponent },
       {
         path: "actor-info/:pageActual/:id",
@@ -39,7 +35,6 @@ const routes: Routes = [
       { path: "tables", component: TablesComponent },
       { path: "maps", component: MapsComponent },
       { path: "", redirectTo: "actors", pathMatch: "full" },
->>>>>>> main
     ],
   },
   // auth views
@@ -55,7 +50,7 @@ const routes: Routes = [
   // no layout views
   { path: "profile", component: ProfileComponent },
   { path: "", component: IndexComponent },
-  { path: "**", redirectTo: "", pathMatch: "full" },
+  { path: "**", redirectTo: "/admin/actors", pathMatch: "full" },
 ];
 
 @NgModule({
