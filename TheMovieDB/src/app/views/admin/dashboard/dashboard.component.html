@@ -1,5 +1,5 @@
 <div class="flex flex-wrap" [ngStyle]="{ 'margin-top': '6em' }">
-  <div
+  <div *ngIf="showingNow == 'actors'"
     [ngStyle]="{
       'text-align': 'end',
       width: '100%',
@@ -21,7 +21,32 @@
       ></i>
     </button>
   </div>
+
+  <div *ngIf="showingNow == 'movies'"
+    [ngStyle]="{
+      'text-align': 'end',
+      width: '100%',
+      'font-size': '30px',
+      'margin-bottom': '1em'
+    }"
+  >
+    <button [value]="pageActualMovies - 1" (click)="backPageMovies()">
+      <i
+        class="fas fa-arrow-alt-circle-left"
+        ng-reflect-ng-class="opacity-75"
+      ></i>
+    </button>
+    {{ pageActualMovies }}|{{ numPagesTotalMovies }}
+    <button [value]="pageActualMovies + 1" (click)="nextPageMovies()">
+      <i
+        class="fas fa-arrow-alt-circle-right"
+        ng-reflect-ng-class="opacity-75"
+      ></i>
+    </button>
+  </div>
+
   <div
+    *ngIf="showingNow == 'movies'"
     [ngStyle]="{
       display: 'flex',
       'flex-wrap': 'wrap',
@@ -29,9 +54,20 @@
       'text-align': 'center'
     }"
   >
-    <app-card-bar-actor
-      *ngFor="let actor of listActor"
-      [actor]="actor"
-    ></app-card-bar-actor>
+    <app-card-bar-movies *ngFor="let movie of listMovies" [movie]="movie">
+    </app-card-bar-movies>
+  </div>
+
+  <div
+    *ngIf="showingNow == 'actors'"
+    [ngStyle]="{
+      display: 'flex',
+      'flex-wrap': 'wrap',
+      'justify-content': 'space-evenly',
+      'text-align': 'center'
+    }"
+  >
+    <app-card-bar-actor *ngFor="let actor of listActor" [actor]="actor">
+    </app-card-bar-actor>
   </div>
 </div>

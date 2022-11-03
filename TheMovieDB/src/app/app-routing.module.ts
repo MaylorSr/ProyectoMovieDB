@@ -31,6 +31,11 @@ const routes: Routes = [
         path: "actor-info/:pageActual/:id",
         component: ActorDetailsComponent,
       },
+
+      /*Rutas Movies*/
+
+      { path : "movies", component: DashboardComponent },
+
       { path: "settings", component: SettingsComponent },
       { path: "tables", component: TablesComponent },
       { path: "maps", component: MapsComponent },
