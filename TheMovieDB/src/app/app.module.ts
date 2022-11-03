@@ -47,6 +47,10 @@ import { PagesDropdownComponent } from "./components/dropdowns/pages-dropdown/pa
 import { NotificationDropdownComponent } from "./components/dropdowns/notification-dropdown/notification-dropdown.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user-dropdown.component";
+import { HttpClientModule } from "@angular/common/http";
+import { CardBarActorComponent } from "./components/cards/card-bar-actor/card-bar-actor.component";
+import { ActorDetailsComponent } from './views/actor-details/actor-details.component';
+import { CardProfileActorComponent } from './components/cards/card-profile-actor/card-profile-actor.component';
 
 @NgModule({
   declarations: [
@@ -84,8 +88,11 @@ import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user
     IndexComponent,
     LandingComponent,
     ProfileComponent,
+    CardBarActorComponent,
+    ActorDetailsComponent,
+    CardProfileActorComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -4,6 +4,7 @@ import { Routes, RouterModule } from "@angular/router";
 // layouts
 import { AdminComponent } from "./layouts/admin/admin.component";
 import { AuthComponent } from "./layouts/auth/auth.component";
+import { ActorDetailsComponent } from "./views/actor-details/actor-details.component";
 
 // admin views
 import { DashboardComponent } from "./views/admin/dashboard/dashboard.component";
@@ -23,14 +24,18 @@ import { ProfileComponent } from "./views/profile/profile.component";
 const routes: Routes = [
   // admin views
   {
-    path: "list",
+    path: "admin",
     component: AdminComponent,
     children: [
-      { path: "dashboard", component: DashboardComponent },
+      { path: "actors", component: DashboardComponent },
+      {
+        path: "actor-info/:pageActual/:id",
+        component: ActorDetailsComponent,
+      },
       { path: "settings", component: SettingsComponent },
       { path: "tables", component: TablesComponent },
       { path: "maps", component: MapsComponent },
-      { path: "", redirectTo: "dashboard", pathMatch: "full" },
+      { path: "", redirectTo: "actors", pathMatch: "full" },
     ],
   },
   // auth views
