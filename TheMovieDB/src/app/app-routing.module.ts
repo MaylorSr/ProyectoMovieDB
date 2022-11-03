@@ -23,7 +23,7 @@ import { ProfileComponent } from "./views/profile/profile.component";
 const routes: Routes = [
   // admin views
   {
-    path: "admin",
+    path: "list",
     component: AdminComponent,
     children: [
       { path: "dashboard", component: DashboardComponent },
