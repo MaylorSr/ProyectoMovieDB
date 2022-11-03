@@ -1,5 +1,43 @@
+<<<<<<< HEAD
 <div class="flex flex-wrap">
 </div>
 <div class="flex flex-wrap mt-4">
 
+=======
+<div class="flex flex-wrap" [ngStyle]="{ 'margin-top': '6em' }">
+  <div
+    [ngStyle]="{
+      'text-align': 'end',
+      width: '100%',
+      'font-size': '30px',
+      'margin-bottom': '1em'
+    }"
+  >
+    <button (click)="backPage()">
+      <i
+        class="fas fa-arrow-alt-circle-left"
+        ng-reflect-ng-class="opacity-75"
+      ></i></button
+    >{{ pageActual }} | {{ numPagesTotal
+    }}<button (click)="nextPage()">
+      <i
+        class="fas fa-arrow-alt-circle-right"
+        ng-reflect-ng-class="opacity-75"
+      ></i>
+    </button>
+  </div>
+  <div
+    [ngStyle]="{
+      display: 'flex',
+      'flex-wrap': 'wrap',
+      'justify-content': 'space-evenly',
+      'text-align': 'center'
+    }"
+  >
+    <app-card-bar-actor
+      *ngFor="let actor of listActor"
+      [actor]="actor"
+    ></app-card-bar-actor>
+  </div>
+>>>>>>> main
 </div>
