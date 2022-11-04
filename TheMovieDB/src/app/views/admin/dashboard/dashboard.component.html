@@ -30,14 +30,14 @@
       'margin-bottom': '1em'
     }"
   >
-    <button [value]="pageActualMovies - 1" (click)="backPageMovies()">
+    <button [value]="pageActualMovies" (click)="backPageMovies()">
       <i
         class="fas fa-arrow-alt-circle-left"
         ng-reflect-ng-class="opacity-75"
       ></i>
     </button>
     {{ pageActualMovies }}|{{ numPagesTotalMovies }}
-    <button [value]="pageActualMovies + 1" (click)="nextPageMovies()">
+    <button (click)="nextPageMovies()">
       <i
         class="fas fa-arrow-alt-circle-right"
         ng-reflect-ng-class="opacity-75"

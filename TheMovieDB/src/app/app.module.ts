@@ -44,6 +44,7 @@ import { CardBarActorComponent } from "./components/cards/card-bar-actor/card-ba
 import { ActorDetailsComponent } from './views/actor-details/actor-details.component';
 import { CardProfileActorComponent } from './components/cards/card-profile-actor/card-profile-actor.component';
 import { CardBarMoviesComponent } from './components/cards/card-bar-movies/card-bar-movies.component';
+import { CardDetailsMovieComponent } from './components/cards/card-details-movie/card-details-movie.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { CardBarMoviesComponent } from './components/cards/card-bar-movies/card-
     ActorDetailsComponent,
     CardProfileActorComponent,
     CardBarMoviesComponent,
+    CardDetailsMovieComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

@@ -20,68 +20,62 @@ export class DashboardComponent implements OnInit {
 
    /*MOVIES ATRIBUTES*/
    numPagesTotalMovies = 0;
-   pageActualMovies = 1;
+   pageActualMovies = 0;
    listMovies : PopularMovie[] = [];
    /*---------------*/
 
   constructor(private listActService: ActorsService, private moviesService : MoviesService, private router : Router) {}
 
   ngOnInit() {
-    this.showListPeople();
-    this.showListMovies();
+    this.showListPeople(1);
+    this.showListMovies(1);
     this.showingNow = this.router.url.split("/")[2];
   }
-  nextPage() {
-    if (this.pageActual < this.numPagesTotal) {
-      this.listActService.getListPeople(this.pageActual).subscribe((res) => {
-        this.pageActual = this.pageActual + 1;
-        this.listActor = res.results;
-        this.numPagesTotal = Math.ceil(res.total_pages / 10);
-      });
-    }
-  }
-  backPage() {
-    if (this.pageActual > 1) {
-      this.listActService.getListPeople(this.pageActual).subscribe((res) => {
-        this.listActor = res.results;
-        this.pageActual = this.pageActual - 1;
-        this.numPagesTotal = Math.ceil(res.total_pages / 10);
-      });
-    }
-  }
 
-  showListPeople() {
-    this.listActService.getListPeople(this.pageActual).subscribe((res) => {
+  /*ACTORS METHODS*/
+  showListPeople(page : number) {
+    this.listActService.getListPeople(page).subscribe((res) => {
       this.listActor = res.results;
-      this.numPagesTotal = Math.ceil(res.total_pages / 10);
+      this.numPagesTotal = res.total_pages;
+      this.pageActual = page;
     });
   }
 
+  nextPage() {
+    if (this.pageActual < this.numPagesTotal) {
+      this.pageActual++;
+      this.showListPeople(this.pageActual)
+    }
+  }
+
+  backPage() {
+    if (this.pageActual > 1) {
+      this.pageActual--;
+      this.showListPeople(this.pageActual);
+    }
+  }
+   /*---------------*/
+
   /*MOVIES METHODS*/
-  showListMovies(){
-    this.moviesService.getListMovies(this.pageActual).subscribe(res => {
+  showListMovies(page : number){
+    this.moviesService.getListMovies(page).subscribe(res => {
       this.listMovies = res.results;
-      this.numPagesTotal = Math.ceil(res.total_results/ 10);
+      this.numPagesTotalMovies = res.total_pages;
+      this.pageActualMovies = page;
     })
   }
 
   nextPageMovies() {
     if (this.pageActualMovies < this.numPagesTotalMovies) {
-      this.moviesService.getListMovies(this.pageActualMovies).subscribe((res) => {
-        this.pageActualMovies = this.pageActualMovies + 1;
-        this.listMovies = res.results;
-        this.numPagesTotalMovies = Math.ceil(res.total_results / 10);
-      });
+      this.pageActualMovies++
+      this.showListMovies(this.pageActualMovies)
     }
   }
 
   backPageMovies() {
     if (this.pageActualMovies > 1) {
-      this.moviesService.getListMovies(this.pageActualMovies).subscribe((res) => {
-        this.listMovies = res.results;
-        this.pageActualMovies = this.pageActualMovies - 1;
-        this.numPagesTotalMovies = Math.ceil(res.total_results / 10);
-      });
+      this.pageActualMovies--
+      this.showListMovies(this.pageActualMovies)
     }
   }
   /*---------------*/
