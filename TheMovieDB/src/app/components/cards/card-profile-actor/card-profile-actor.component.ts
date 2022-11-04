@@ -1,12 +1,8 @@
-import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { ActorResponse } from "src/app/interfaces/actorDetails-interface";
-import {
-  Actor,
-  ActorRespon,
-  KnownFor,
-} from "src/app/interfaces/actors-interface";
+import { FilmByActor } from "src/app/interfaces/actorFilms-interface";
+import { Actor } from "src/app/interfaces/actors-interface";
 import { ActorsService } from "src/app/services/actors.service";
 import { environment } from "src/environments/environment";
 
@@ -17,12 +13,8 @@ import { environment } from "src/environments/environment";
 })
 export class CardProfileActorComponent implements OnInit {
   id: number = 0;
-  numPagesTotal = 0;
-  pageActual = 1;
-  listPeople: Actor[] = [];
   actor: ActorResponse = {} as ActorResponse;
-  actorByFilms: Actor = {} as Actor;
-  listFilms = this.actorByFilms.known_for;
+  listFilms: FilmByActor[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -30,7 +22,6 @@ export class CardProfileActorComponent implements OnInit {
   ) {}
   ngOnInit() {
     this.route.params.subscribe((res) => {
-      this.pageActual = res["pageActual"];
       this.id = res["id"];
     });
     this.showActorInfo();
@@ -44,14 +35,8 @@ export class CardProfileActorComponent implements OnInit {
   }
 
   showListFilms() {
-    this.actorService.getListPeople(this.pageActual).subscribe((res) => {
-      this.listPeople = res.results;
-      for (let i of this.listPeople) {
-        if (this.id == i.id) {
-          this.actorByFilms = i;
-          this.listFilms = this.actorByFilms.known_for;
-        }
-      }
+    this.actorService.getFilmsByActor(this.id).subscribe((res) => {
+      this.listFilms = res.cast;
     });
   }
 

@@ -69,7 +69,7 @@
   <div class="w-full px-4 text-center mt-20">
     <div class="flex justify-center py-4 lg:pt-4 pt-8 flex flex-wrap">
       <div
-        class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded"
+        class="relative flex flex-col min-w-0 break-words bg-dark w-full mb-6 shadow-lg rounded"
         [ngStyle]="{ width: '300px', 'margin-right': '2em' }"
         *ngFor="let films of listFilms"
       >
@@ -79,7 +79,10 @@
         >
           <div class="flex flex-wrap items-center">
             <div class="relative w-full max-w-full flex-grow flex-1">
-              <h2 class="text-blueGray-700 text-xl font-semibold">
+              <h2
+                class="text-white-700 text-xl font-semibold"
+                [ngStyle]="{ color: 'white' }"
+              >
                 {{ films.original_title }}
               </h2>
             </div>
@@ -96,7 +99,7 @@
             />
           </div>
         </div>
-        <button>MORE INFO+</button>
+        <button [ngStyle]="{ color: 'white' }">MORE INFO+</button>
       </div>
     </div>
   </div>
