@@ -2,12 +2,12 @@
 
 export interface FavFilmResponse {
   page: number;
-  results: Film[];
+  results: FilmFav[];
   total_pages: number;
   total_results: number;
 }
 
-export interface Film {
+export interface FilmFav {
   adult: boolean;
   backdrop_path: null;
   genre_ids: number[];

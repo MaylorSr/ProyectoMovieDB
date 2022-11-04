@@ -1,9 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { CreateSessionDto } from "src/app/dto/create-session.dto";
-import { DeleteSessionDto } from "src/app/dto/delete-session.dto";
 import { IndexLoginService } from "src/app/services/index-login.service";
-import { environment } from "src/environments/environment";
 
 @Component({
   selector: "app-sidebar",
@@ -59,6 +57,7 @@ export class SidebarComponent implements OnInit {
     localStorage.removeItem("session_id");
     localStorage.removeItem("avatar");
     localStorage.removeItem("user_name");
+    localStorage.removeItem("idAccount");
     this.approved = false;
     window.location.href = `http://localhost:4200/admin/actors`;
   }
@@ -69,6 +68,7 @@ export class SidebarComponent implements OnInit {
       console.log("User name:" + res.username);
       localStorage.setItem("avatar", res.avatar.gravatar.hash);
       console.log("Avatar hash:" + res.avatar.gravatar.hash);
+      console.log("Id Account:" + res.id);
     });
   }
 

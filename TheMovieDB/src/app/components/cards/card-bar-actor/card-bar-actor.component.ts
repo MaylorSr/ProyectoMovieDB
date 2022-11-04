@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Actor } from "src/app/interfaces/actors-interface";
-import { ActorsService } from "src/app/services/actors.service";
 import { environment } from "src/environments/environment";
 
 @Component({
