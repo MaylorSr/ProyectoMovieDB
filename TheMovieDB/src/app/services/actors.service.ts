@@ -4,6 +4,7 @@ import { ActorRespon } from "../interfaces/actors-interface";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { ActorResponse } from "../interfaces/actorDetails-interface";
+import { ActorFilmResponse } from "../interfaces/actorFilms-interface";
 
 @Injectable({
   providedIn: "root",
@@ -27,8 +28,13 @@ export class ActorsService {
     );
   }
 
+  getFilmsByActor(id: number): Observable<ActorFilmResponse> {
+    return this.http.get<ActorFilmResponse>(
+      `${environment.API_BASE_URL}/person/${id}/movie_credits?api_key=${environment.api_key}`
+    );
+  }
+
   showFilmsImg(posterFilm: string) {
     return `${environment.api_base_img}${posterFilm}`;
   }
-
 }
