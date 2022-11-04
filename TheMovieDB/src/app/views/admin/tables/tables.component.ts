@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
+import { DetailResponse } from "src/app/interfaces/details-user.interface";
 import { FilmFav } from "src/app/interfaces/fav-films-interfaces";
 import { FavFilmsService } from "src/app/services/fav-films.service";
 
@@ -9,14 +10,15 @@ import { FavFilmsService } from "src/app/services/fav-films.service";
 export class TablesComponent implements OnInit {
   constructor(private favFilmsSerice: FavFilmsService) {}
   listFavFilms: FilmFav[] = [];
+  id = localStorage.getItem("id");
   session_id = localStorage.getItem("session_id");
-  idAccount = localStorage.getItem("id");
-
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.showFavFilms();
+  }
 
   showFavFilms() {
     this.favFilmsSerice
-      .getFavFilms(15159087, this.session_id)
+      .getFavFilms(parseInt(this.id), this.session_id)
       .subscribe((res) => {
         this.listFavFilms = res.results;
       });

@@ -14,6 +14,8 @@ export class SidebarComponent implements OnInit {
   user_name = localStorage.getItem("user_name");
   avatar = localStorage.getItem("hash_img");
   session_id = localStorage.getItem("session_id");
+  id = localStorage.getItem("id");
+
   constructor(
     private indexServices: IndexLoginService,
     private route: ActivatedRoute
@@ -41,6 +43,7 @@ export class SidebarComponent implements OnInit {
       }
     });
   }
+
   toggleCollapseShow(classes) {
     this.collapseShow = classes;
   }
@@ -57,7 +60,7 @@ export class SidebarComponent implements OnInit {
     localStorage.removeItem("session_id");
     localStorage.removeItem("avatar");
     localStorage.removeItem("user_name");
-    localStorage.removeItem("idAccount");
+    localStorage.removeItem("id");
     this.approved = false;
     window.location.href = `http://localhost:4200/admin/actors`;
   }
@@ -68,7 +71,8 @@ export class SidebarComponent implements OnInit {
       console.log("User name:" + res.username);
       localStorage.setItem("avatar", res.avatar.gravatar.hash);
       console.log("Avatar hash:" + res.avatar.gravatar.hash);
-      console.log("Id Account:" + res.id);
+      localStorage.setItem("id", String(res.id));
+      console.log("id:", res.id);
     });
   }
 
