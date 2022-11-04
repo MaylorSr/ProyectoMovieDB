@@ -13,7 +13,4 @@ export class CardBarFavFilmsComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  showFavFilms() {
-    this.favFilmsSerice.getFavFilms().subscribe((res) => {});
-  }
 }

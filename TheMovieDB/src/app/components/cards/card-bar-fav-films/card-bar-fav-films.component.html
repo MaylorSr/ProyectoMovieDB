@@ -17,15 +17,17 @@
   <div class="p-4 flex-auto">
     <!-- Chart -->
     <div class="relative" style="height: auto">
+      <!--
       <img
         mat-card-image
         [src]="showImgPeople(actor)"
         onerror="this.onerror = null; this.src='https://programacion.net/files/article/20161110041116_image-not-found.png'"
         alt="Photo of a actor"
       />
+      -->
     </div>
   </div>
-  <button [routerLink]="['/admin/actor-info', actor.id]">
+  <button [routerLink]="['/admin/actor-info', '']">
     MORE INFO+
   </button>
 </div>
