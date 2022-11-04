@@ -60,6 +60,7 @@ export class SidebarComponent implements OnInit {
     localStorage.removeItem("avatar");
     localStorage.removeItem("user_name");
     this.approved = false;
+    window.location.href = `http://localhost:4200/admin/actors`;
   }
 
   getInfo() {
@@ -76,6 +77,5 @@ export class SidebarComponent implements OnInit {
       return `https://www.themoviedb.org/t/p/w150_and_h150_face/${avatarUrl}.jpg`;
     }
     return `https://www.gravatar.com/avatar/${avatarUrl}.jpg?s=32`;
-
   }
 }

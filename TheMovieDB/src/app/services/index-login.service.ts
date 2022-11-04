@@ -33,13 +33,12 @@ export class IndexLoginService {
   deleteSession(
     deleteSessionDto: DeleteSessionDto
   ): Observable<DeleteSessionResponse> {
-    return this.http.delete<DeleteSessionResponse>(
-      `${environment.API_BASE_URL}/authentication/session?api_key=${environment.API_BASE_URL}`, 
-
+    return this.http.request<DeleteSessionResponse>('delete',
+      `${environment.API_BASE_URL}/authentication/session?api_key=${environment.api_key}`, 
       {
-        
+        body : deleteSessionDto
       }
-      );
+    );
   }
 
   getInfoUser(): Observable<DetailResponse> {

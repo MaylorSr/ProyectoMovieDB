@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { ActorResponse } from "src/app/interfaces/actorDetails-interface";
 import { FilmByActor } from "src/app/interfaces/actorFilms-interface";
-import { Actor } from "src/app/interfaces/actors-interface";
 import { ActorsService } from "src/app/services/actors.service";
 import { environment } from "src/environments/environment";
 
