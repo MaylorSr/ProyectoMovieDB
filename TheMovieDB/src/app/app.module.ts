@@ -45,6 +45,8 @@ import { ActorDetailsComponent } from './views/actor-details/actor-details.compo
 import { CardProfileActorComponent } from './components/cards/card-profile-actor/card-profile-actor.component';
 import { CardBarMoviesComponent } from './components/cards/card-bar-movies/card-bar-movies.component';
 import { CardBarFavFilmsComponent } from './components/cards/card-bar-fav-films/card-bar-fav-films.component';
+import { FavFilmsComponent } from './views/admin/fav-films/fav-films.component';
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -78,8 +80,9 @@ import { CardBarFavFilmsComponent } from './components/cards/card-bar-fav-films/
     CardProfileActorComponent,
     CardBarMoviesComponent,
     CardBarFavFilmsComponent,
+    FavFilmsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

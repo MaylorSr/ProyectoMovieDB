@@ -48,15 +48,7 @@
         </div>
       </div>
       <!-- Form -->
-      <form class="mt-6 mb-4 md:hidden">
-        <div class="mb-3 pt-0">
-          <input
-            type="text"
-            placeholder="Search"
-            class="border-0 px-3 py-2 h-12 border border-solid border-blueGray-500 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base leading-snug shadow-none outline-none focus:outline-none w-full font-normal"
-          />
-        </div>
-      </form>
+   
 
       <!-- Divider -->
       <hr class="my-4 md:min-w-full" />
@@ -107,69 +99,25 @@
             Movies
           </a>
         </li>
-
-        <li class="items-center">
-          <a
-            [routerLink]="['/admin/settings']"
-            class="text-xs uppercase py-3 font-bold block"
-            routerLinkActive
-            #adminSettings="routerLinkActive"
-            [ngClass]="
-              adminSettings.isActive
-                ? 'text-red-600 hover:text-red-700'
-                : 'text-blueGray-700 hover:text-blueGray-500'
-            "
-          >
-            <i
-              class="fas fa-tools mr-2 text-sm"
-              [ngClass]="
-                adminSettings.isActive ? 'opacity-75' : 'text-blueGray-300'
-              "
-            ></i>
-            Settings
-          </a>
-        </li>
         <li class="items-center" *ngIf="approved">
           <a
-            [routerLink]="['/admin/tables']"
+            [routerLink]="['/admin/fav/Films']"
             class="text-xs uppercase py-3 font-bold block"
             routerLinkActive
-            #adminTables="routerLinkActive"
+            #adminFavFilms="routerLinkActive"
             [ngClass]="
-              adminTables.isActive
+              adminFavFilms.isActive
                 ? 'text-red-600 hover:text-red-700'
                 : 'text-blueGray-700 hover:text-blueGray-500'
             "
           >
             <i
-              class="fas fa-table mr-2 text-sm"
+              class="fa fa-heart mr-2 text-sm"
               [ngClass]="
-                adminTables.isActive ? 'opacity-75' : 'text-blueGray-300'
+                adminFavFilms.isActive ? 'opacity-75' : 'text-blueGray-300'
               "
             ></i>
             Fav Films
-          </a>
-        </li>
-
-        <li class="items-center">
-          <a
-            [routerLink]="['/admin/maps']"
-            class="text-xs uppercase py-3 font-bold block"
-            routerLinkActive
-            #adminMaps="routerLinkActive"
-            [ngClass]="
-              adminMaps.isActive
-                ? 'text-red-600 hover:text-red-700'
-                : 'text-blueGray-700 hover:text-blueGray-500'
-            "
-          >
-            <i
-              class="fas fa-map-marked mr-2 text-sm"
-              [ngClass]="
-                adminMaps.isActive ? 'opacity-75' : 'text-blueGray-300'
-              "
-            ></i>
-            Maps
           </a>
         </li>
       </ul>
@@ -181,8 +129,10 @@
         class="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline text-center"
       >
         <span *ngIf="approved">
-          {{ user_name }}
-          <div class="items-center">
+          <span [ngStyle]="{ color: 'black', 'font-size': '14px' }">
+            {{ user_name }}
+          </span>
+          <div class="items-center" [ngStyle]="{ 'margin-top': '1em' }">
             <span
               class="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full"
             >
@@ -221,39 +171,7 @@
 
       <!-- Divider -->
       <hr class="my-4 md:min-w-full" />
-      <!-- Heading -->
-      <h6
-        class="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
-      >
-        No Layout Pages
-      </h6>
       <!-- Navigation -->
-
-      <ul class="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
-        <li class="items-center">
-          <a
-            [routerLink]="['/landing']"
-            class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-          >
-            <i class="fas fa-newspaper text-blueGray-300 mr-2 text-sm"></i>
-            Landing Page
-          </a>
-        </li>
-
-        <li class="items-center">
-          <a
-            [routerLink]="['/profile']"
-            class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-          >
-            <i class="fas fa-user-circle text-blueGray-300 mr-2 text-sm"></i>
-            Profile Page
-          </a>
-        </li>
-      </ul>
-
-      <!-- Divider -->
-      <hr class="my-4 md:min-w-full" />
-      <!-- Heading -->
     </div>
   </div>
 </nav>

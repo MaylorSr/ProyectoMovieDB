@@ -1,0 +1,31 @@
+<div class="flex flex-wrap" [ngStyle]="{ 'margin-top': '6em', 'background-color' : 'gray' }">
+  <div
+    [ngStyle]="{
+      'text-align': 'end',
+      width: '100%',
+      'font-size': '30px',
+      'margin-bottom': '1em'
+    }"
+  ></div>
+  <div
+    [ngStyle]="{
+      display: 'flex',
+      'flex-wrap': 'wrap',
+      'justify-content': 'space-evenly',
+      'text-align': 'center'
+    }"
+  >
+  <input
+      type="search"
+      placeholder="Atlanta"
+      id="Buscador"
+      type="text"
+      [(ngModel)]="shearchText"
+    />
+    <app-card-bar-fav-films
+      *ngFor="let FilmFav of listFavFilms | filter: shearchText"
+      [film]="FilmFav"
+    >
+    </app-card-bar-fav-films>
+  </div>
+</div>
