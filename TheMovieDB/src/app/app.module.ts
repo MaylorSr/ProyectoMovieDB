@@ -43,6 +43,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { CardBarActorComponent } from "./components/cards/card-bar-actor/card-bar-actor.component";
 import { ActorDetailsComponent } from './views/actor-details/actor-details.component';
 import { CardProfileActorComponent } from './components/cards/card-profile-actor/card-profile-actor.component';
+import { CardBarMoviesComponent } from './components/cards/card-bar-movies/card-bar-movies.component';
 import { CardBarFavFilmsComponent } from './components/cards/card-bar-fav-films/card-bar-fav-films.component';
 
 @NgModule({
@@ -75,6 +76,7 @@ import { CardBarFavFilmsComponent } from './components/cards/card-bar-fav-films/
     CardBarActorComponent,
     ActorDetailsComponent,
     CardProfileActorComponent,
+    CardBarMoviesComponent,
     CardBarFavFilmsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
