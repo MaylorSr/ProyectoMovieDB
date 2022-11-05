@@ -8,7 +8,6 @@ import { FavFilmsService } from "src/app/services/fav-films.service";
 })
 export class FavFilmsComponent implements OnInit {
   constructor(private favFilmsSerice: FavFilmsService) {}
-  shearchText : any;
   listFavFilms: FilmFav[] = [];
   id = localStorage.getItem("id");
   session_id = localStorage.getItem("session_id");
