@@ -1,8 +1,24 @@
-<div class="flex flex-wrap mt-4">
-  <div class="w-full mb-12 px-4">
-    <app-card-table></app-card-table>
-  </div>
-  <div class="w-full mb-12 px-4">
-    <app-card-table color="dark"></app-card-table>
+<div class="flex flex-wrap" [ngStyle]="{ 'margin-top': '6em' }">
+  <div
+    [ngStyle]="{
+      'text-align': 'end',
+      width: '100%',
+      'font-size': '30px',
+      'margin-bottom': '1em'
+    }"
+  ></div>
+  <div
+    [ngStyle]="{
+      display: 'flex',
+      'flex-wrap': 'wrap',
+      'justify-content': 'space-evenly',
+      'text-align': 'center'
+    }"
+  >
+    <app-card-bar-fav-films
+      *ngFor="let FilmFav of listFavFilms"
+      [film]="FilmFav"
+    >
+    </app-card-bar-fav-films>
   </div>
 </div>

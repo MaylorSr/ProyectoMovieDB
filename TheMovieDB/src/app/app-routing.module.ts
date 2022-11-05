@@ -28,7 +28,7 @@ const routes: Routes = [
     children: [
       { path: "actors", component: DashboardComponent },
       {
-        path: "actor-info/:pageActual/:id",
+        path: "actor-info/:id",
         component: ActorDetailsComponent,
       },
 
