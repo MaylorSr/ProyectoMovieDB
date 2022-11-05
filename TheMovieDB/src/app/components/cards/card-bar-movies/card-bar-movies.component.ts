@@ -10,15 +10,12 @@ import { environment } from 'src/environments/environment';
 })
 export class CardBarMoviesComponent implements OnInit {
 
-  numPagesTotal = 0;
-  page = 1;
-  pageActual : number =this.page;
   voteAvg : number = 0;
   voteAvgStr : String = "";
   votesColor: String = "";
   votesBgColor: String = "";
 
-  listMovies : PopularMovie[] = [];
+  listMovies : PopularMovie []= []
   @Input() movie : PopularMovie = {} as PopularMovie;
 
   constructor(private moviesService : MoviesService) { }
