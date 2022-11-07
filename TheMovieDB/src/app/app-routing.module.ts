@@ -8,6 +8,7 @@ import { ActorDetailsComponent } from "./views/actor-details/actor-details.compo
 
 // admin views
 import { DashboardComponent } from "./views/admin/dashboard/dashboard.component";
+import { FavFilmsComponent } from "./views/admin/fav-films/fav-films.component";
 import { MapsComponent } from "./views/admin/maps/maps.component";
 import { SettingsComponent } from "./views/admin/settings/settings.component";
 import { TablesComponent } from "./views/admin/tables/tables.component";
@@ -26,20 +27,17 @@ const routes: Routes = [
     path: "admin",
     component: AdminComponent,
     children: [
-<<<<<<< HEAD
-      { path: "dashboard", component: DashboardComponent },
-      { path: "", redirectTo: "dashboard", pathMatch: "full" },
-=======
-      { path: "actors", component: DashboardComponent },
+      { path: "actors/", component: DashboardComponent },
       {
-        path: "actor-info/:pageActual/:id",
+        path: "actor-info/:id",
         component: ActorDetailsComponent,
       },
-      { path: "settings", component: SettingsComponent },
-      { path: "tables", component: TablesComponent },
-      { path: "maps", component: MapsComponent },
-      { path: "", redirectTo: "actors", pathMatch: "full" },
->>>>>>> main
+
+      /*Rutas Movies*/
+
+      { path: "movies", component: DashboardComponent },
+      { path: "fav/Films", component: FavFilmsComponent },
+      { path: "**", redirectTo: "actors/", pathMatch: "full" },
     ],
   },
   // auth views
@@ -54,8 +52,7 @@ const routes: Routes = [
   },
   // no layout views
   { path: "profile", component: ProfileComponent },
-  { path: "", component: IndexComponent },
-  { path: "**", redirectTo: "", pathMatch: "full" },
+  { path: "**", redirectTo: "/admin/actors/", pathMatch: "full" },
 ];
 
 @NgModule({

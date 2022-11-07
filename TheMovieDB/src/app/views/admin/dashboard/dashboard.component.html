@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-<div class="flex flex-wrap">
-</div>
-<div class="flex flex-wrap mt-4">
-
-=======
-<div class="flex flex-wrap" [ngStyle]="{ 'margin-top': '6em' }">
-  <div
+<div class="flex flex-wrap" [ngStyle]="{ 'margin-top': '6em'}">
+  <div *ngIf="showingNow == 'actors'"
     [ngStyle]="{
       'text-align': 'end',
       width: '100%',
@@ -13,20 +7,46 @@
       'margin-bottom': '1em'
     }"
   >
-    <button (click)="backPage()">
+    <button [value]="pageActual - 1" (click)="backPage()" [ngStyle]="{'color' : 'white' }">
       <i
         class="fas fa-arrow-alt-circle-left"
         ng-reflect-ng-class="opacity-75"
-      ></i></button
-    >{{ pageActual }} | {{ numPagesTotal
-    }}<button (click)="nextPage()">
+      ></i>
+    </button>
+    {{ pageActual }}|{{ numPagesTotal }}
+    <button [value]="pageActual + 1" (click)="nextPage()" [ngStyle]="{'color' : 'white' }">
       <i
         class="fas fa-arrow-alt-circle-right"
         ng-reflect-ng-class="opacity-75"
       ></i>
     </button>
   </div>
+
+  <div *ngIf="showingNow == 'movies'"
+    [ngStyle]="{
+      'text-align': 'end',
+      width: '100%',
+      'font-size': '30px',
+      'margin-bottom': '1em'
+    }"
+  >
+    <button [value]="pageActualMovies" (click)="backPageMovies()" [ngStyle]="{'color' : 'white' }">
+      <i
+        class="fas fa-arrow-alt-circle-left"
+        ng-reflect-ng-class="opacity-75"
+      ></i>
+    </button>
+    {{ pageActualMovies }}|{{ numPagesTotalMovies }}
+    <button (click)="nextPageMovies()" [ngStyle]="{'color' : 'white' }">
+      <i
+        class="fas fa-arrow-alt-circle-right"
+        ng-reflect-ng-class="opacity-75"
+      ></i>
+    </button>
+  </div>
+
   <div
+    *ngIf="showingNow == 'movies'"
     [ngStyle]="{
       display: 'flex',
       'flex-wrap': 'wrap',
@@ -34,10 +54,20 @@
       'text-align': 'center'
     }"
   >
-    <app-card-bar-actor
-      *ngFor="let actor of listActor"
-      [actor]="actor"
-    ></app-card-bar-actor>
+    <app-card-bar-movies *ngFor="let movie of listMovies" [movie]="movie">
+    </app-card-bar-movies>
   </div>
->>>>>>> main
+
+  <div
+    *ngIf="showingNow == 'actors'"
+    [ngStyle]="{
+      display: 'flex',
+      'flex-wrap': 'wrap',
+      'justify-content': 'space-evenly',
+      'text-align': 'center'
+    }"
+  >
+    <app-card-bar-actor *ngFor="let actor of listActor" [actor]="actor">
+    </app-card-bar-actor>
+  </div>
 </div>
