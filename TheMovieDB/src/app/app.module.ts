@@ -82,6 +82,8 @@ import { FavFilmsComponent } from "./views/admin/fav-films/fav-films.component";
     CardBarMoviesComponent,
     CardBarFavFilmsComponent,
     FavFilmsComponent,
+    MovieDetailsComponent,
+    CardMovieDetailsComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
