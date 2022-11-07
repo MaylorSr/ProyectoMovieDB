@@ -54,7 +54,7 @@ export class SidebarComponent implements OnInit {
     this.indexServices.createRequestToken().subscribe((resp) => {
       this.reqToken = resp.request_token;
       console.log(this.reqToken);
-      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=http://localhost:4200/admin/actors/`;
+      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=${environment.api_hosting}/admin/actors/`;
     });
   }
 
