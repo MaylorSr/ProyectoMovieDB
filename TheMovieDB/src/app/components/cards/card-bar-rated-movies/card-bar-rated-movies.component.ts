@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FilmRated } from 'src/app/interfaces/rated-films-interface';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-card-bar-rated-movies',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardBarRatedMoviesComponent implements OnInit {
 
+  @Input() filmRated : FilmRated = {} as FilmRated;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public showImgMovie(ratedFilm: FilmRated) {
+    return `${environment.api_base_img}${ratedFilm.poster_path}`;
   }
 
 }

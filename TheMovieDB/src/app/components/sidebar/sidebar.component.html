@@ -120,7 +120,7 @@
             Fav Films
           </a>
         </li>
-        <li  class="item-center">
+        <li  class="item-center" *ngIf="approved">
           <a
           [routerLink]="['/admin/rated/movies']"
           class="text-xs uppercase py-3 font-bold block"
@@ -140,7 +140,6 @@
             ></i>
           Rated Films
         </a>
-
         </li>
 
       </ul>
@@ -158,7 +157,7 @@
           <div class="items-center" [ngStyle]="{ 'margin-top': '1em' }">
             <span
               class="w-12 h-12 text-sm text-white bg-blueGray-300 inline-flex items-center justify-center rounded-full"
-              [ngStyle]="{ width: '30%' }"
+              [ngStyle]=""
             >
               <img
                 alt="Photo of avatar of people"
