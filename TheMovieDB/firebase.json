@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "./dist/notus-angular",
+    "public": "/dist/notus-angular",
     "ignore": [
       "firebase.json",
       "**/.*",
