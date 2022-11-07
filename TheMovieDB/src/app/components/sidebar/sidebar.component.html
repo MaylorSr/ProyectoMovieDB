@@ -48,7 +48,6 @@
         </div>
       </div>
       <!-- Form -->
-   
 
       <!-- Divider -->
       <hr class="my-4 md:min-w-full" />
@@ -134,12 +133,14 @@
           </span>
           <div class="items-center" [ngStyle]="{ 'margin-top': '1em' }">
             <span
-              class="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full"
+              class="w-12 h-12 text-sm text-white bg-blueGray-300 inline-flex items-center justify-center rounded-full"
+              [ngStyle]="{ width: '30%' }"
             >
               <img
                 alt="Photo of avatar of people"
                 class="w-full rounded-full align-middle border-none shadow-lg"
-                [src]="showAvatar(avatar)"
+                [src]="showAvatar()"
+                onerror="this.onerror = null; this.src='https://www.gravatar.com/avatar/4d05ae5268d6133885591e677cea98fa.jpg?s=150'"
               />
             </span>
           </div>
