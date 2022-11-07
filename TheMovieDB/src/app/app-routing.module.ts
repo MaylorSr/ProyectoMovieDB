@@ -28,14 +28,11 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       { path: "actors/", component: DashboardComponent },
-      {
-        path: "actor-info/:id",
-        component: ActorDetailsComponent,
-      },
+      { path: "actor-info/:id", component: ActorDetailsComponent},
 
       /*Rutas Movies*/
-      { path : "movies", component: DashboardComponent },
-      { path : "movies-info/:id", component:MovieDetailsComponent },
+      { path : "movies", component : DashboardComponent },
+      { path : "movies-info/:id", component : MovieDetailsComponent },
       /*------------------*/
 
       { path: "settings", component: SettingsComponent },

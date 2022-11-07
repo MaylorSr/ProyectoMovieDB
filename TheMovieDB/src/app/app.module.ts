@@ -48,6 +48,7 @@ import { CardBarFavFilmsComponent } from './components/cards/card-bar-fav-films/
 import { MovieDetailsComponent } from './views/movie-details/movie-details.component';
 import { CardMovieDetailsComponent } from './components/cards/card-movie-details/card-movie-details.component';
 import { FavFilmsComponent } from "./views/admin/fav-films/fav-films.component";
+import { CardBarRatedMoviesComponent } from './components/cards/card-bar-rated-movies/card-bar-rated-movies.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { FavFilmsComponent } from "./views/admin/fav-films/fav-films.component";
     CardBarFavFilmsComponent,
     CardMovieDetailsComponent,
     FavFilmsComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    CardBarRatedMoviesComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
