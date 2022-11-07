@@ -10,6 +10,7 @@ import { ActorDetailsComponent } from "./views/actor-details/actor-details.compo
 import { DashboardComponent } from "./views/admin/dashboard/dashboard.component";
 import { FavFilmsComponent } from "./views/admin/fav-films/fav-films.component";
 import { MapsComponent } from "./views/admin/maps/maps.component";
+import { RatedFilmsComponent } from "./views/admin/rated-films/rated-films.component";
 import { SettingsComponent } from "./views/admin/settings/settings.component";
 import { TablesComponent } from "./views/admin/tables/tables.component";
 
@@ -28,14 +29,12 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       { path: "actors/", component: DashboardComponent },
-      {
-        path: "actor-info/:id",
-        component: ActorDetailsComponent,
-      },
+      { path: "actor-info/:id", component: ActorDetailsComponent},
 
       /*Rutas Movies*/
-      { path : "movies", component: DashboardComponent },
-      { path : "movies-info/:id", component:MovieDetailsComponent },
+      { path : "movies", component : DashboardComponent },
+      { path : "movies-info/:id", component : MovieDetailsComponent },
+      { path : "rated/movies", component: RatedFilmsComponent},
       /*------------------*/
 
       { path: "settings", component: SettingsComponent },
@@ -43,7 +42,6 @@ const routes: Routes = [
       { path: "maps", component: MapsComponent },
       { path: "", redirectTo: "actors", pathMatch: "full" },
 
-      { path: "movies", component: DashboardComponent },
       { path: "fav/Films", component: FavFilmsComponent },
       { path: "**", redirectTo: "actors/", pathMatch: "full" },
     ],

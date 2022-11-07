@@ -6,6 +6,7 @@ import { CreditsResponse } from '../interfaces/movie-cast-interface';
 import { MovieDetailsResponse } from '../interfaces/movie-details-interface';
 import { MovieVideoResponse } from '../interfaces/movie-videos';
 import { MoviesResponse } from '../interfaces/movies-interface';
+import { RatedFilmsResponse } from '../interfaces/rated-films-interface';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +31,9 @@ export class MoviesService {
 
   public getVideosMovie(id: number) : Observable<MovieVideoResponse>{
     return this.http.get<MovieVideoResponse>(`${environment.API_BASE_URL}/movie/${id}/videos?api_key=${environment.api_key}`)
+  }
+
+  public getRatedMovies(id : number, sessionId : string) : Observable<RatedFilmsResponse> {
+    return this.http.get<RatedFilmsResponse>(`${environment.API_BASE_URL}/account/${id}/rated/movies?api_key=${environment.api_key}&session_id=${sessionId}`)
   }
 }
