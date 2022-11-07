@@ -1,6 +1,7 @@
 <nav
-  class="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6"
->
+  class="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-yellow flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6"
+[ngStyle]="{background: 'brown', color : 'white'}"
+  >
   <div
     class="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto"
   >
@@ -22,7 +23,7 @@
     <!-- Collapse -->
     <div
       class="md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-4 md:shadow-none shadow absolute top-0 left-0 right-0 z-40 overflow-y-auto overflow-x-hidden h-auto items-center flex-1 rounded"
-      [ngClass]="collapseShow"
+      [ngClass]="collapseShow" [ngStyle]="{background: 'brown'}"
     >
       <!-- Collapse header -->
       <div
@@ -57,12 +58,12 @@
         <li class="items-center">
           <a
             [routerLink]="['/admin/actors']"
-            class="text-xs uppercase py-3 font-bold block"
+            class="text-xs uppercase py-3 font-bold block "
             routerLinkActive
             #adminDashboard="routerLinkActive"
             [ngClass]="
               adminDashboard.isActive
-                ? 'text-red-600 hover:text-red-700'
+                ? 'text-white-600 hover:text-white-700'
                 : 'text-blueGray-700 hover:text-blueGray-500'
             "
           >
@@ -85,7 +86,7 @@
             #adminMovies="routerLinkActive"
             [ngClass]="
               adminMovies.isActive
-                ? 'text-red-600 hover:text-red-700'
+                ? 'text-white-600 hover:text-white-700'
                 : 'text-blueGray-700 hover:text-blueGray-500'
             "
           >
@@ -106,7 +107,7 @@
             #adminFavFilms="routerLinkActive"
             [ngClass]="
               adminFavFilms.isActive
-                ? 'text-red-600 hover:text-red-700'
+                ? 'text-white-600 hover:text-white-700'
                 : 'text-blueGray-700 hover:text-blueGray-500'
             "
           >
@@ -128,7 +129,7 @@
         class="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline text-center"
       >
         <span *ngIf="approved">
-          <span [ngStyle]="{ color: 'black', 'font-size': '14px' }">
+          <span [ngStyle]="{ color: 'white', 'font-size': '14px' }">
             {{ user_name }}
           </span>
           <div class="items-center" [ngStyle]="{ 'margin-top': '1em' }">
@@ -152,7 +153,7 @@
         <li class="items-center" *ngIf="!approved">
           <button
             (click)="loginRequesToken()"
-            class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
+            class="text-white-700 hover:text-white-500 text-xs uppercase py-3 font-bold block"
           >
             <i class="fas fa-fingerprint text-blueGray-300 mr-2 text-sm"></i>
             Login
@@ -162,7 +163,7 @@
         <li class="items-center" *ngIf="approved">
           <button
             (click)="LogoutSession()"
-            class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
+            class="text-white-700 hover:text-white-500 text-xs uppercase py-3 font-bold block"
           >
             <i class="fas fa-clipboard-list text-blueGray-300 mr-2 text-sm"></i>
             Logout
