@@ -1,4 +1,4 @@
-<div class="flex flex-wrap" [ngStyle]="{ 'margin-top': '6em' }">
+<div class="flex flex-wrap" [ngStyle]="{ 'margin-top': '6em'}">
   <div *ngIf="showingNow == 'actors'"
     [ngStyle]="{
       'text-align': 'end',
@@ -7,14 +7,14 @@
       'margin-bottom': '1em'
     }"
   >
-    <button [value]="pageActual - 1" (click)="backPage()">
+    <button [value]="pageActual - 1" (click)="backPage()" [ngStyle]="{'color' : 'white' }">
       <i
         class="fas fa-arrow-alt-circle-left"
         ng-reflect-ng-class="opacity-75"
       ></i>
     </button>
     {{ pageActual }}|{{ numPagesTotal }}
-    <button [value]="pageActual + 1" (click)="nextPage()">
+    <button [value]="pageActual + 1" (click)="nextPage()" [ngStyle]="{'color' : 'white' }">
       <i
         class="fas fa-arrow-alt-circle-right"
         ng-reflect-ng-class="opacity-75"
@@ -30,14 +30,14 @@
       'margin-bottom': '1em'
     }"
   >
-    <button [value]="pageActualMovies" (click)="backPageMovies()">
+    <button [value]="pageActualMovies" (click)="backPageMovies()" [ngStyle]="{'color' : 'white' }">
       <i
         class="fas fa-arrow-alt-circle-left"
         ng-reflect-ng-class="opacity-75"
       ></i>
     </button>
     {{ pageActualMovies }}|{{ numPagesTotalMovies }}
-    <button (click)="nextPageMovies()">
+    <button (click)="nextPageMovies()" [ngStyle]="{'color' : 'white' }">
       <i
         class="fas fa-arrow-alt-circle-right"
         ng-reflect-ng-class="opacity-75"

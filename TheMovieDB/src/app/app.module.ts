@@ -47,6 +47,7 @@ import { CardBarMoviesComponent } from './components/cards/card-bar-movies/card-
 import { CardBarFavFilmsComponent } from './components/cards/card-bar-fav-films/card-bar-fav-films.component';
 import { MovieDetailsComponent } from './views/movie-details/movie-details.component';
 import { CardMovieDetailsComponent } from './components/cards/card-movie-details/card-movie-details.component';
+import { FavFilmsComponent } from "./views/admin/fav-films/fav-films.component";
 
 @NgModule({
   declarations: [
@@ -80,8 +81,7 @@ import { CardMovieDetailsComponent } from './components/cards/card-movie-details
     CardProfileActorComponent,
     CardBarMoviesComponent,
     CardBarFavFilmsComponent,
-    MovieDetailsComponent,
-    CardMovieDetailsComponent,
+    FavFilmsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

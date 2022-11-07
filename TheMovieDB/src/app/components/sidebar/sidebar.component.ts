@@ -1,7 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { CreateSessionDto } from "src/app/dto/create-session.dto";
+import { DeleteSessionDto } from "src/app/dto/delete-session.dto";
 import { IndexLoginService } from "src/app/services/index-login.service";
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: "app-sidebar",
@@ -12,7 +14,7 @@ export class SidebarComponent implements OnInit {
   reqToken = "";
   approved = false;
   user_name = localStorage.getItem("user_name");
-  avatar = localStorage.getItem("hash_img");
+  avatar_path = localStorage.getItem("avatar_path");
   session_id = localStorage.getItem("session_id");
   id = localStorage.getItem("id");
 
@@ -52,34 +54,41 @@ export class SidebarComponent implements OnInit {
     this.indexServices.createRequestToken().subscribe((resp) => {
       this.reqToken = resp.request_token;
       console.log(this.reqToken);
-      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=http://localhost:4200/admin/actors`;
+      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=${environment.api_hosting}/admin/actors/`;
     });
   }
 
   LogoutSession() {
-    localStorage.removeItem("session_id");
-    localStorage.removeItem("avatar");
-    localStorage.removeItem("user_name");
-    localStorage.removeItem("id");
-    this.approved = false;
-    window.location.href = `http://localhost:4200/admin/actors`;
+    let deleteSessionDto = new DeleteSessionDto();
+    if (localStorage.getItem("session_id") != null) {
+      deleteSessionDto.session_id = localStorage.getItem("session_id")!;
+      this.indexServices.deleteSession(deleteSessionDto).subscribe((resp) => {
+        if (resp.success) {
+          localStorage.removeItem("session_id");
+          localStorage.removeItem("avatar_path");
+          localStorage.removeItem("user_name");
+          localStorage.removeItem("id");
+          this.approved = false;
+          window.location.href = `${environment.api_hosting}/admin/actors`;
+        }
+      });
+    }
   }
 
   getInfo() {
     this.indexServices.getInfoUser().subscribe((res) => {
       localStorage.setItem("user_name", res.username);
       console.log("User name:" + res.username);
-      localStorage.setItem("avatar", res.avatar.gravatar.hash);
-      console.log("Avatar hash:" + res.avatar.gravatar.hash);
+      localStorage.setItem("avatar_path", res.avatar.tmdb.avatar_path);
+      console.log("avatar_path:" + res.avatar.tmdb.avatar_path);
       localStorage.setItem("id", String(res.id));
       console.log("id:", res.id);
     });
   }
 
-  showAvatar(avatarUrl: string) {
-    if (avatarUrl == "4d05ae5268d6133885591e677cea98fa") {
-      return `https://www.themoviedb.org/t/p/w150_and_h150_face/${avatarUrl}.jpg`;
-    }
-    return `https://www.gravatar.com/avatar/${avatarUrl}.jpg?s=32`;
+  showAvatar() {
+    return `https://image.tmdb.org/t/p/w400${localStorage.getItem(
+      "avatar_path"
+    )}`;
   }
 }

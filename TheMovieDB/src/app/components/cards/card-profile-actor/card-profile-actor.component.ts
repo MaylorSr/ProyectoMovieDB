@@ -14,7 +14,7 @@ export class CardProfileActorComponent implements OnInit {
   id: number = 0;
   actor: ActorResponse = {} as ActorResponse;
   listFilms: FilmByActor[] = [];
-
+  
   constructor(
     private route: ActivatedRoute,
     private actorService: ActorsService
