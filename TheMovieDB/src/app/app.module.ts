@@ -41,10 +41,12 @@ import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user-dropdown.component";
 import { HttpClientModule } from "@angular/common/http";
 import { CardBarActorComponent } from "./components/cards/card-bar-actor/card-bar-actor.component";
-import { ActorDetailsComponent } from "./views/actor-details/actor-details.component";
-import { CardProfileActorComponent } from "./components/cards/card-profile-actor/card-profile-actor.component";
-import { CardBarMoviesComponent } from "./components/cards/card-bar-movies/card-bar-movies.component";
-import { CardBarFavFilmsComponent } from "./components/cards/card-bar-fav-films/card-bar-fav-films.component";
+import { ActorDetailsComponent } from './views/actor-details/actor-details.component';
+import { CardProfileActorComponent } from './components/cards/card-profile-actor/card-profile-actor.component';
+import { CardBarMoviesComponent } from './components/cards/card-bar-movies/card-bar-movies.component';
+import { CardBarFavFilmsComponent } from './components/cards/card-bar-fav-films/card-bar-fav-films.component';
+import { MovieDetailsComponent } from './views/movie-details/movie-details.component';
+import { CardMovieDetailsComponent } from './components/cards/card-movie-details/card-movie-details.component';
 import { FavFilmsComponent } from "./views/admin/fav-films/fav-films.component";
 
 @NgModule({
@@ -80,6 +82,8 @@ import { FavFilmsComponent } from "./views/admin/fav-films/fav-films.component";
     CardBarMoviesComponent,
     CardBarFavFilmsComponent,
     FavFilmsComponent,
+    MovieDetailsComponent,
+    CardMovieDetailsComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

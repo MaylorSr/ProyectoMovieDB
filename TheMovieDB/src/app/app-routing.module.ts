@@ -18,7 +18,7 @@ import { LoginComponent } from "./views/auth/login/login.component";
 import { RegisterComponent } from "./views/auth/register/register.component";
 
 // no layouts views
-import { IndexComponent } from "./views/index/index.component";
+import { MovieDetailsComponent } from "./views/movie-details/movie-details.component";
 import { ProfileComponent } from "./views/profile/profile.component";
 
 const routes: Routes = [
@@ -34,6 +34,14 @@ const routes: Routes = [
       },
 
       /*Rutas Movies*/
+      { path : "movies", component: DashboardComponent },
+      { path : "movies-info/:id", component:MovieDetailsComponent },
+      /*------------------*/
+
+      { path: "settings", component: SettingsComponent },
+      { path: "tables", component: TablesComponent },
+      { path: "maps", component: MapsComponent },
+      { path: "", redirectTo: "actors", pathMatch: "full" },
 
       { path: "movies", component: DashboardComponent },
       { path: "fav/Films", component: FavFilmsComponent },
