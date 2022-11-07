@@ -34,10 +34,8 @@ const routes: Routes = [
       },
 
       /*Rutas Movies*/
-
       { path : "movies", component: DashboardComponent },
       { path : "movies-info/:id", component:MovieDetailsComponent },
-
       /*------------------*/
 
       { path: "settings", component: SettingsComponent },
