@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { CreateSessionDto } from "src/app/dto/create-session.dto";
 import { DeleteSessionDto } from "src/app/dto/delete-session.dto";
 import { IndexLoginService } from "src/app/services/index-login.service";
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: "app-sidebar",
@@ -53,7 +54,7 @@ export class SidebarComponent implements OnInit {
     this.indexServices.createRequestToken().subscribe((resp) => {
       this.reqToken = resp.request_token;
       console.log(this.reqToken);
-      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=https://proyectothemoviedb.web.app/admin/actors/`;
+      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=${environment.api_hosting}/admin/actors/`;
     });
   }
 
@@ -68,7 +69,7 @@ export class SidebarComponent implements OnInit {
           localStorage.removeItem("user_name");
           localStorage.removeItem("id");
           this.approved = false;
-          window.location.href = `https://proyectothemoviedb.web.app/admin/actors`;
+          window.location.href = `${environment.api_hosting}/admin/actors`;
         }
       });
     }
