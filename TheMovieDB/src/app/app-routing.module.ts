@@ -10,6 +10,7 @@ import { ActorDetailsComponent } from "./views/actor-details/actor-details.compo
 import { DashboardComponent } from "./views/admin/dashboard/dashboard.component";
 import { FavFilmsComponent } from "./views/admin/fav-films/fav-films.component";
 import { MapsComponent } from "./views/admin/maps/maps.component";
+import { RatedFilmsComponent } from "./views/admin/rated-films/rated-films.component";
 import { SettingsComponent } from "./views/admin/settings/settings.component";
 import { TablesComponent } from "./views/admin/tables/tables.component";
 
@@ -18,7 +19,7 @@ import { LoginComponent } from "./views/auth/login/login.component";
 import { RegisterComponent } from "./views/auth/register/register.component";
 
 // no layouts views
-import { IndexComponent } from "./views/index/index.component";
+import { MovieDetailsComponent } from "./views/movie-details/movie-details.component";
 import { ProfileComponent } from "./views/profile/profile.component";
 
 const routes: Routes = [
@@ -28,14 +29,19 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       { path: "actors/", component: DashboardComponent },
-      {
-        path: "actor-info/:id",
-        component: ActorDetailsComponent,
-      },
+      { path: "actor-info/:id", component: ActorDetailsComponent},
 
       /*Rutas Movies*/
+      { path : "movies", component : DashboardComponent },
+      { path : "movies-info/:id", component : MovieDetailsComponent },
+      { path : "rated/movies", component: RatedFilmsComponent},
+      /*------------------*/
 
-      { path: "movies", component: DashboardComponent },
+      { path: "settings", component: SettingsComponent },
+      { path: "tables", component: TablesComponent },
+      { path: "maps", component: MapsComponent },
+      { path: "", redirectTo: "actors", pathMatch: "full" },
+
       { path: "fav/Films", component: FavFilmsComponent },
       { path: "**", redirectTo: "actors/", pathMatch: "full" },
     ],

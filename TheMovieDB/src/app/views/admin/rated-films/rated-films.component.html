@@ -1,0 +1,31 @@
+<div
+  class="flex flex-wrap"
+  [ngStyle]="{
+    'margin-top': '6em',
+    'background-color': 'gray',
+    padding: '2em'
+  }"
+>
+  <div
+    [ngStyle]="{
+      'text-align': 'end',
+      width: '100%',
+      'font-size': '30px',
+      'margin-bottom': '1em'
+    }"
+  ></div>
+  <div
+    [ngStyle]="{
+      display: 'flex',
+      'flex-wrap': 'wrap',
+      'justify-content': 'space-evenly',
+      'text-align': 'center'
+    }"
+  >
+    <app-card-bar-rated-movies
+      *ngFor="let filmRated of ratedFilms"
+      [filmRated]="filmRated"
+    >
+    </app-card-bar-rated-movies>
+  </div>
+</div>

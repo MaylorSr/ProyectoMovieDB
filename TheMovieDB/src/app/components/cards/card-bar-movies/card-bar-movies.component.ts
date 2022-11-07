@@ -15,7 +15,6 @@ export class CardBarMoviesComponent implements OnInit {
   votesColor: String = "";
   votesBgColor: String = "";
 
-  listMovies : PopularMovie []= []
   @Input() movie : PopularMovie = {} as PopularMovie;
 
   constructor(private moviesService : MoviesService) { }
